@@ -1,0 +1,4 @@
+name: essentialEmEvidencia
+version: '1.0'
+main: org.example.minevidencia.essentialEmEvidencia.EssentialEmEvidencia
+api-version: '1.21'
