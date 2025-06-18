@@ -58,7 +58,7 @@ Para contribuir com este projeto, siga os passos abaixo:
 
 ## Dúvidas?
 
-Abra uma [issue](https://github.com/MineVidencia/essential-em-evidencia/issues) para relatar problemas ou tirar dúvidas.
+Abra uma [issue](https://github.com/MineVidencia/essential-em-evidencia/issues) para relatar problemas ou tirar dúvidas ou fale pelo grupo do Whatsapp.
 
 ---
 
