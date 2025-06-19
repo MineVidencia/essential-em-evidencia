@@ -4,12 +4,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.example.minevidencia</groupId>
-    <artifactId>essentialemevidencia</artifactId>
+    <groupId>me.gabrielprozin.repair</groupId>
+    <artifactId>repair</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
 
-    <name>essentialemevidencia</name>
+    <name>Repair</name>
 
     <properties>
         <java.version>21</java.version>
