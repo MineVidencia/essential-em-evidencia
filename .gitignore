@@ -1,0 +1,22 @@
+# Diretórios de build do Maven
+/target/
+
+# Arquivos de configuração do IntelliJ IDEA
+*.iml
+.idea/
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Arquivos temporários
+*.tmp
+*.swp
+
+# Configurações do Eclipse (caso alguém use)
+.classpath
+.project
+.settings/

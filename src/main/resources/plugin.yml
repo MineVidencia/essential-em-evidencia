@@ -1,7 +1,7 @@
-main: org.example.minevidencia.essentialEmEvidencia.RepairPlugin
-name: Repair
+main: org.example.minevidencia.essentialEmEvidencia.EssentialEmEvidencia
+name: EssentialEmEvidencia
 version: 1.0
-author: Gabriel Prozin
+author: Equipe Minevidência
 api-version: 1.21.5
 commands:
   repair:

@@ -1,14 +1,17 @@
-//package org.example.minevidencia.essentialEmEvidencia;
-//
-//import org.bukkit.plugin.java.JavaPlugin;
-//
-//public final class EssentialEmEvidencia extends JavaPlugin {
-//
-//    @Override
-//    public void onEnable() {
-//    }
-//
-//    @Override
-//    public void onDisable() {
-//    }
-//}
+package org.example.minevidencia.essentialEmEvidencia;
+
+import org.bukkit.plugin.java.JavaPlugin;
+
+import java.util.Objects;
+
+public final class EssentialEmEvidencia extends JavaPlugin {
+
+    @Override
+    public void onEnable() {
+        Objects.requireNonNull(getCommand("repair")).setExecutor(new Repair());
+    }
+
+    @Override
+    public void onDisable() {
+    }
+}
