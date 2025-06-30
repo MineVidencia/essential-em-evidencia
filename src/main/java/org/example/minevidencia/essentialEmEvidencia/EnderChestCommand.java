@@ -22,7 +22,7 @@ public class EnderChestCommand implements CommandExecutor {
             return true;
         }
 
-        Bukkit.getServer().getLogger().info(ChatColor.RED + "Apenas players podem usar o ender chest");
+        Bukkit.getServer().getLogger().info("Apenas players podem usar o ender chest");
         return false;
     }
 }
