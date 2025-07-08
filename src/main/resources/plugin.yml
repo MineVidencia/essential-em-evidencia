@@ -1,8 +1,19 @@
-name: essentialEmEvidencia
-version: '1.0'
 main: org.example.minevidencia.essentialEmEvidencia.EssentialEmEvidencia
-api-version: '1.21'
-
+name: EssentialEmEvidencia
+version: 1.0
+author: Equipe Minevidência
+api-version: 1.21.5
 commands:
-    fly:
+  repair:
+    description: Repara a durabilidade dos itens
+    usage: /repair [hand|all]
+    aliases: [fix, efix, erepair]
 
+  enderchest:
+    description: Abre o enderChest do player
+    usage: /enderchest
+    aliases: [echest, ec]
+    
+  fly:
+    description: Te dá a possibilidade de voar
+    usage: /fly
