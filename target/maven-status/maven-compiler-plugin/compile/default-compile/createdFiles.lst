@@ -1,2 +1,7 @@
+
+org\example\minevidencia\essentialEmEvidencia\commands\FlyOthersCommand.class
+org\example\minevidencia\essentialEmEvidencia\manager\FlyManager.class
+org\example\minevidencia\essentialEmEvidencia\commands\FlyCommand.class
+org\example\minevidencia\essentialEmEvidencia\EssentialEmEvidencia.class
 org\example\minevidencia\essentialEmEvidencia\RepairPlugin.class
 org\example\minevidencia\essentialEmEvidencia\Repair.class

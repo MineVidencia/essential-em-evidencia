@@ -13,3 +13,7 @@ commands:
     description: Abre o enderChest do player
     usage: /enderchest
     aliases: [echest, ec]
+    
+  fly:
+    description: Te dá a possibilidade de voar
+    usage: /fly
