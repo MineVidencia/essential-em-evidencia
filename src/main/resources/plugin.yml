@@ -8,3 +8,8 @@ commands:
     description: Repara a durabilidade dos itens
     usage: /repair [hand|all]
     aliases: [fix, efix, erepair]
+
+  enderchest:
+    description: Abre o enderChest do player
+    usage: /enderchest
+    aliases: [echest, ec]
