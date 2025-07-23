@@ -19,13 +19,22 @@ public class TimeManager {
             case "dawn":
                 return 23000;
         }
+        
         if (timeString.contains(":")) {
             try {
-                long ticks = getTicks(timeString);
-                return ticks;
+                return getTicks(timeString);
 
             } catch (NumberFormatException e) {
                 throw new IllegalArgumentException("A hora deve conter apenas números.");
+            }
+        }
+        
+        if (timeString.endsWith("am") || timeString.endsWith("pm")) {
+            try {
+                int adjustedHours = getHours(timeString);
+                return adjustedHours * 1000L;
+            } catch (NumberFormatException e) {
+                throw new IllegalArgumentException("Input de tempo desconhecido ou inválido.");
             }
         }
         
@@ -35,6 +44,20 @@ public class TimeManager {
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("Input de tempo desconhecido ou inválido.");
         }
+    }
+
+    private static int getHours(String timeString) {
+        int hour;
+        if (timeString.endsWith("am")) {
+            hour = Integer.parseInt(timeString.replace("am", ""));
+            if (hour == 12) hour = 0;
+        } else {
+            hour = Integer.parseInt(timeString.replace("pm", ""));
+            if (hour != 12) hour += 12;
+        }
+        if (hour < 0 || hour > 23) throw new IllegalArgumentException("Hora inválida.");
+
+        return (hour - 6 + 24) % 24;
     }
 
     private static long getTicks(String timeString) {
@@ -53,7 +76,7 @@ public class TimeManager {
         // Tempo começa das 6:00 da manhã
         int adjustedHours = (hours - 6 + 24) % 24;
 
-        long ticks = (long) (adjustedHours * 1000);
+        long ticks = adjustedHours * 1000;
         ticks += (long) ((minutes / 60.0) * 1000);
         return ticks;
     }
