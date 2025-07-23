@@ -17,3 +17,9 @@ commands:
   fly:
     description: Te dá a possibilidade de voar
     usage: /fly
+
+  time:
+    description: Exibe/muda o horario do mundo
+    usage: /time [time] [worldname]
+    aliases: [day, eday, night, enight, etime]
+    permission: essentialevidencia.time
