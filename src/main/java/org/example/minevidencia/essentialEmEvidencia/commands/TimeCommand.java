@@ -1,57 +1,57 @@
 package org.example.minevidencia.essentialEmEvidencia.commands;
 
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.example.minevidencia.essentialEmEvidencia.manager.TimeManager;
 import org.jetbrains.annotations.NotNull;
 
 public class TimeCommand implements CommandExecutor {
 
-    Player p = null;
-
     @Override
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String @NotNull [] strings) {
-        if (commandSender instanceof Player player){
-            p = (Player) commandSender;
-        }
-
         if (!commandSender.hasPermission("essentialevidencia.time")) {
             commandSender.sendMessage(ChatColor.RED + "Você não tem permissão para usar este comando.");
-            Bukkit.getServer().getLogger().info("Você não tem permissão para usar este comando.");
-            return false;
+            return true;
         }
 
         if (strings.length == 0) {
-            if (!(commandSender instanceof Player player)){
-                Bukkit.getServer().getLogger().info("Você precisa especificar o tempo e o mundo.");
-                return false;
+            if (!(commandSender instanceof Player)) {
+                commandSender.sendMessage(ChatColor.RED + "Do console, você precisa especificar um tempo e um mundo. Ex: /time day world");
+                return true;
             }
-            Long ticks = (p.getLocation().getWorld().getTime());
-            p.sendMessage(tickToHour(ticks));
+            Player player = (Player) commandSender;
+            long currentTicks = player.getWorld().getTime();
+
+            player.sendMessage(ChatColor.GOLD + "O tempo atual é: " + TimeManager.tickToHour(currentTicks));
             return true;
         }
+
         if (strings.length == 1) {
-            if (!(commandSender instanceof Player player)){
+            if (!(commandSender instanceof Player)){
                 commandSender.sendMessage(ChatColor.RED + "Você precisa especificar o tempo e o mundo.");
-                return false;
+                return true;
             }
+            String timeInput = strings[0];
 
+            try {
+                long ticks = TimeManager.parseTimeToTicks(timeInput);
+                Player player = (Player) commandSender;
+                player.getWorld().setTime(ticks);
+                player.sendMessage(ChatColor.GREEN + "Tempo alterado para " + timeInput + ".");
+
+            } catch (IllegalArgumentException e) {
+                commandSender.sendMessage(ChatColor.RED + "Valor de tempo '" + strings[0] + "' é inválido.");
+            }
+            return true;
         }
-        if (strings.length == 2) {
 
+        if (strings.length == 2) {
+            return true;
         }
 
         return false;
-    }
-
-    public String tickToHour(Long ticks) {
-        double horasDecimais = ticks / 1000.0;
-        int horas = (int) horasDecimais;
-        int minutos = (int) Math.round((horasDecimais - horas) * 60);
-
-        return (horas + ":" + minutos);
     }
 }
